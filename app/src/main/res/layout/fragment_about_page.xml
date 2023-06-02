@@ -14,20 +14,22 @@
         android:layout_height="wrap_content"
         android:text="Unknown"
         android:textAlignment="center"
-        android:textSize="20sp" />
+        android:padding="5sp"
+        android:textSize="32sp" />
 
     <TextView
         android:id="@+id/aboutDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Unknown"
-        android:textAlignment="center"
-        android:textSize="15sp" />
+        android:padding="5sp"
+        android:textSize="18sp" />
 
     <ImageView
         android:id="@+id/aboutImage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="10sp"
         android:adjustViewBounds="true"
         android:src="@drawable/ic_baseline_add_24" />
 </LinearLayout>
