@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:text="Unknown"
         android:textAlignment="center"
-        android:padding="5sp"
+        android:padding="8sp"
         android:textSize="32sp" />
 
     <TextView
@@ -22,14 +22,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Unknown"
-        android:padding="5sp"
+        android:padding="8sp"
         android:textSize="18sp" />
 
     <ImageView
         android:id="@+id/aboutImage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10sp"
+        android:padding="18sp"
         android:adjustViewBounds="true"
         android:src="@drawable/ic_baseline_add_24" />
 </LinearLayout>

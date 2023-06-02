@@ -85,6 +85,32 @@ public class AboutFragment extends Fragment {
         public Fragment createFragment(int position) {
             switch (position){
                 case 0:
+                    return AboutPageFragment.newInstance("About TaskMan", "TaskMan is an app designed to let you keep track of all the things" +
+                            " you need to get done, and more!\n" +
+                            "Set goals for yourself, find new goals, and brag about them!", R.drawable.task_man_logo);
+                case 1:
+                    return AboutPageFragment.newInstance("What is a task?", "A task can be anything you want to get done.\n" +
+                            "Tasks can include details about the type of task you wish to complete (Educational, Recreational, etc.) as well as" +
+                            " information about due dates and completion status.", R.drawable.task_man_logo);
+                case 2:
+                    return AboutPageFragment.newInstance("Adding Tasks", "To create a new task, tap the + button in the bottom corner of the tasks page. " +
+                            "This will take you to a form that allows you to fill in all the required information regarding your task. " +
+                            "You also have the option of adding a picture to a task. If no picture is taken, a default picture will be used instead.", R.drawable.ic_baseline_add_24);
+                case 3:
+                    return AboutPageFragment.newInstance("Updating Tasks", "To update or change a task after it is completed, simply tap that task " +
+                            "from the task page to re-open it. From here you are free to change anything about the task, including its completion status. " +
+                            "\nTasks that are complete become green, tasks that are still ongoing are yellow, and tasks that haven't been started yet " +
+                            "are grey.", R.drawable.ic_baseline_edit_24);
+                case 4:
+                    return AboutPageFragment.newInstance("Using the Calendar", "When viewing a task, you can tap the calendar icon next to the " +
+                            "due date to create a reminder in your phone's calendar.", R.drawable.ic_baseline_calendar_24);
+                case 5:
+                    return AboutPageFragment.newInstance("Posting to Social Media", "After completing a task, a button will appear that allows you " +
+                            "to post about that task to Reddit. Tap that button to open up your internet browser and create your post!", R.drawable.reddit_icon);
+                case 6:
+                    return AboutPageFragment.newInstance("Task Randomizer", "Not sure what task you want to get started with today? Check out " +
+                            "the task randomizer! This page allows you to generate random ideas for things to do to stave off the boredom. " +
+                            "You can refine the types of things it suggests by visiting the settings page.", R.drawable.ic_baseline_idea_24);
                 default:
                     return AboutPageFragment.newInstance("About", "Details", R.drawable.ic_baseline_add_24);
             }
