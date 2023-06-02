@@ -103,6 +103,7 @@ public class AboutFragment extends Fragment {
     @RequiresApi(21)
     public class DepthPageTransformer implements ViewPager2.PageTransformer {
         private static final float MIN_SCALE = 0.75f;
+        private static final float MIN_ALPHA = 0.15f;
 
         public void transformPage(View view, float position) {
             int pageWidth = view.getWidth();
@@ -119,9 +120,9 @@ public class AboutFragment extends Fragment {
                 view.setScaleX(1f);
                 view.setScaleY(1f);
 
-            } else if (position <= 1) { // (0,1]
+            } else if (position < 1) { // (0,1]
                 // Fade the page out.
-                view.setAlpha(1 - position);
+                view.setAlpha(1 - position*(1-MIN_ALPHA));
 
                 // Counteract the default slide transition
                 view.setTranslationX(pageWidth * -position);
