@@ -2,7 +2,12 @@ package com.example.taskman.Fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -61,6 +66,78 @@ public class AboutFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_about, container, false);
+        View view= inflater.inflate(R.layout.fragment_about, container, false);
+        ViewPager2 viewPager2 = view.findViewById(R.id.aboutViewPager);
+        viewPager2.setAdapter(new AboutFragment.CustomViewPager2Adapter(getActivity()));
+        viewPager2.setPageTransformer(new DepthPageTransformer());
+        return view;
+    }
+
+    private class CustomViewPager2Adapter extends FragmentStateAdapter {
+
+        public CustomViewPager2Adapter(@NonNull FragmentActivity fragmentActivity) {
+            super(fragmentActivity);
+        }
+
+        //Add the four characters to the potential fragments.
+        @NonNull
+        @Override
+        public Fragment createFragment(int position) {
+            switch (position){
+                case 0:
+                default:
+                    return AboutPageFragment.newInstance("About", "Details", R.drawable.ic_baseline_add_24);
+            }
+
+        }
+
+        //Pages:
+        // About the app, what is a task, adding tasks, updating tasks, using the calendar, posting to reddit, task randomizer
+        @Override
+        public int getItemCount() {
+            return 7;
+        }
+
+    }
+
+    @RequiresApi(21)
+    public class DepthPageTransformer implements ViewPager2.PageTransformer {
+        private static final float MIN_SCALE = 0.75f;
+
+        public void transformPage(View view, float position) {
+            int pageWidth = view.getWidth();
+
+            if (position < -1) { // [-Infinity,-1)
+                // This page is way off-screen to the left.
+                view.setAlpha(0f);
+
+            } else if (position <= 0) { // [-1,0]
+                // Use the default slide transition when moving to the left page
+                view.setAlpha(1f);
+                view.setTranslationX(0f);
+                view.setTranslationZ(0f);
+                view.setScaleX(1f);
+                view.setScaleY(1f);
+
+            } else if (position <= 1) { // (0,1]
+                // Fade the page out.
+                view.setAlpha(1 - position);
+
+                // Counteract the default slide transition
+                view.setTranslationX(pageWidth * -position);
+                // Move it behind the left page
+                view.setTranslationZ(-1f);
+
+                // Scale the page down (between MIN_SCALE and 1)
+                float scaleFactor = MIN_SCALE
+                        + (1 - MIN_SCALE) * (1 - Math.abs(position));
+                view.setScaleX(scaleFactor);
+                view.setScaleY(scaleFactor);
+
+            } else { // (1,+Infinity]
+                // This page is way off-screen to the right.
+                view.setAlpha(0f);
+            }
+        }
     }
 }
