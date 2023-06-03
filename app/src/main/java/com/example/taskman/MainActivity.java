@@ -4,10 +4,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
 
+import com.example.taskman.Fragments.CreateUpdateFragment;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
@@ -27,13 +31,20 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+
 
         setSupportActionBar(binding.appBarMain.toolbar);
-        binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
+        binding.appBarMain.addfab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                NavDestination currentFragment = navController.getCurrentDestination();
+                if(currentFragment.getId() == R.id.nav_tasks){
+                    Bundle extra = new Bundle();
+                    extra.putInt(CreateUpdateFragment.ACTION_TYPE,
+                            CreateUpdateFragment.CREATE);
+                    navController.navigate(R.id.nav_create_update, extra);
+                }
             }
         });
         DrawerLayout drawer = binding.drawerLayout;
@@ -44,9 +55,20 @@ public class MainActivity extends AppCompatActivity {
                 R.id.nav_about)
                 .setOpenableLayout(drawer)
                 .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
+            @Override
+            public void onDestinationChanged(@NonNull NavController navController, @NonNull NavDestination navDestination, @Nullable Bundle bundle) {
+                if(navDestination.getId() == R.id.nav_tasks){
+                    binding.appBarMain.addfab.show();
+                }
+                else{
+                    binding.appBarMain.addfab.hide();
+                }
+            }
+        });
     }
 
     @Override
