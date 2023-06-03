@@ -26,8 +26,8 @@ public class CreateUpdateFragment extends Fragment {
 
     /**
      * These constants will be used to signal the fragment
-     * UPDATE - for updating quotes
-     * CREATE - for creating quotes
+     * UPDATE - for updating tasks
+     * CREATE - for creating tasks
      */
     public static final int UPDATE = 1;
     public static final int CREATE = 2;
@@ -68,12 +68,12 @@ public class CreateUpdateFragment extends Fragment {
 
         //if we have a bundle
         if(getArguments() != null){
-            //if the user wants to update a quote
+            //if the user wants to update a task
             if(getArguments().getInt(ACTION_TYPE) == UPDATE){
                 task = getArguments().getParcelable(TASK);
-                submit.setText("Update Quote");
+                submit.setText("Update Task");
                 if(task != null){
-                    //Populate the edit text fields on the screen with the quotes values
+                    //Populate the edit text fields on the screen with the task's values
                     taskTitle.setText(task.getActivity());
                     taskType.setText(task.getType());
                 }
