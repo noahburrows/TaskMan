@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="10sp">
+
+    <!-- Added a cardview for the quotes -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/taskbox"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        app:cardUseCompatPadding="true"
+        app:strokeColor="@color/grey"
+        app:strokeWidth="3dp"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.TaskMan.MaterialCardView">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingHorizontal="8sp"
+            android:paddingBottom="5sp">
+
+            <TextView
+                android:id="@+id/activity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Task"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Type"
+                android:textStyle="italic"/>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</LinearLayout>

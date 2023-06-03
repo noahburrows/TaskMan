@@ -10,8 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.taskman.Adapters.CustomTaskAdapter;
 import com.example.taskman.Database.TaskDatabase;
 import com.example.taskman.R;
+import com.example.taskman.pojo.Task;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -69,8 +71,13 @@ public class TasksFragment extends Fragment {
 
         TaskDatabase db = new TaskDatabase(getContext());
 
+        db.addTask(new Task("Make task", "Work", 1, 2, 3));
+        db.addTask(new Task("Fill Database", "Work", 1, 2, 3));
+        db.addTask(new Task("Do other thing", "Cooking", 1, 2, 3));
+
         CustomTaskAdapter adapter = new CustomTaskAdapter(db.getAllTasks(), getContext());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        return view;
     }
 }

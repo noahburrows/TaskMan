@@ -19,6 +19,14 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+
+    <style name="ShapeAppearanceOverlay.TaskMan.MaterialCardView" parent="">
+        <item name="cornerFamilyTopLeft">cut</item>
+        <item name="cornerSizeTopLeft">18dp</item>
+        <item name="cornerFamilyTopRight">cut</item>
+        <item name="cornerSizeTopRight">18dp</item>
+    </style>
+
     <style name="Theme.TaskMan.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.TaskMan.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
