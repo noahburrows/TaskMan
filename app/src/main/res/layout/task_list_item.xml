@@ -4,13 +4,13 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="10sp">
+    android:padding="8sp">
 
     <!-- Added a cardview for the quotes -->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/taskbox"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="140dp"
         app:cardUseCompatPadding="true"
         app:strokeColor="@color/grey"
         app:strokeWidth="3dp"

@@ -71,9 +71,9 @@ public class TasksFragment extends Fragment {
 
         TaskDatabase db = new TaskDatabase(getContext());
 
-        db.addTask(new Task("Make task", "Work", 1, 2, 3));
-        db.addTask(new Task("Fill Database", "Work", 1, 2, 3));
-        db.addTask(new Task("Do other thing", "Cooking", 1, 2, 3));
+//        db.addTask(new Task("Make task", "Work", 1, 2, 3));
+//        db.addTask(new Task("Fill Database", "Work", 1, 2, 3));
+//        db.addTask(new Task("Do other thing", "Cooking", 1, 2, 3));
 
         CustomTaskAdapter adapter = new CustomTaskAdapter(db.getAllTasks(), getContext());
         recyclerView.setAdapter(adapter);

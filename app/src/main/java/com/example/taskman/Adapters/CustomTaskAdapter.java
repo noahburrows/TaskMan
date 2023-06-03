@@ -40,7 +40,7 @@ public class CustomTaskAdapter extends RecyclerView.Adapter<CustomTaskAdapter.Cu
         holder.activity.setText(task.getActivity());
         holder.type.setText("Type: " + task.getType());
         int completion = task.getCompletion();
-        if (completion == 1){
+        if (completion == 0){
             holder.taskbox.setStrokeColor(ContextCompat.getColor(this.context, R.color.black));
         }
     }
