@@ -15,7 +15,7 @@ public class Task implements Parcelable {
 
 
     private String pictureResource;
-    private boolean useDefaultPic = true;
+    private int useDefaultPic = 1; // 1 = true, 0 = false
 
     public Task(String activity, String type, int dueDate, int dueMonth, int dueYear) {
         this.activity = activity;
@@ -28,7 +28,7 @@ public class Task implements Parcelable {
         switch (type){
             case "educational":
                 this.pictureResource = "https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80";
-                break; 
+                break;
             case "recreation":
                 this.pictureResource = "https://images.unsplash.com/photo-1605050825077-289f85b6cf43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80";
                 break;
@@ -57,14 +57,16 @@ public class Task implements Parcelable {
     }
 
     //DB Read specific
-    public Task(int id, String activity, String type, int dueDate, int dueMonth, int dueYear) {
+    public Task(int id, String activity, String type, int dueDate, int dueMonth, int dueYear, int completion, String pictureResource, int useDefaultPic) {
         this.id = id;
         this.activity = activity;
         this.type = type;
         this.dueDate = dueDate;
         this.dueMonth = dueMonth;
         this.dueYear = dueYear;
-        this.completion = 0;
+        this.completion = completion;
+        this.pictureResource = pictureResource;
+        this.useDefaultPic = useDefaultPic;
     }
 
     public Task(){
@@ -126,6 +128,21 @@ public class Task implements Parcelable {
 
     public void setCompletion(int completion) {
         this.completion = completion;
+    }
+
+    public String getPictureResource() {
+        return pictureResource;
+    }
+
+    public void setPictureResource(String pictureResource) {
+        this.pictureResource = pictureResource;
+    }
+    public int getUseDefault() {
+        return useDefaultPic;
+    }
+
+    public void setUseDefaultPic(int useDefaultPic) {
+        this.useDefaultPic = useDefaultPic;
     }
 
 
