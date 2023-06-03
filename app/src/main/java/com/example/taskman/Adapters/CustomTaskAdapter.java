@@ -1,6 +1,8 @@
 package com.example.taskman.Adapters;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.taskman.Database.TaskDatabase;
 import com.example.taskman.R;
 import com.example.taskman.pojo.Task;
 import com.google.android.material.card.MaterialCardView;
@@ -53,7 +56,7 @@ public class CustomTaskAdapter extends RecyclerView.Adapter<CustomTaskAdapter.Cu
         return 0;
     }
 
-    class CustomViewHolder extends RecyclerView.ViewHolder{
+    class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnLongClickListener{
         protected TextView activity;
         protected TextView type;
         protected MaterialCardView taskbox;
@@ -63,6 +66,28 @@ public class CustomTaskAdapter extends RecyclerView.Adapter<CustomTaskAdapter.Cu
             this.activity = itemView.findViewById(R.id.activity);
             this.type = itemView.findViewById(R.id.type);
             this.taskbox = itemView.findViewById(R.id.taskbox);
+            itemView.setOnLongClickListener(this);
+        }
+
+        @Override
+        public boolean onLongClick(View v) {
+            new AlertDialog.Builder(context)
+                    .setTitle("Delete")
+                    .setMessage("Are you sure you want to delete this task?")
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            TaskDatabase db = new TaskDatabase(context);
+                            db.deleteTask(tasks.get(getLayoutPosition()).getId());
+                            tasks.remove(getLayoutPosition());
+                            notifyItemRemoved(getAdapterPosition());
+                            db.close();
+                        }
+                    })
+                    .setNegativeButton("No", null)
+                    .show();
+            return false;
         }
     }
 }
