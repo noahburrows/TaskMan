@@ -47,7 +47,7 @@ public class CustomTaskAdapter extends RecyclerView.Adapter<CustomTaskAdapter.Cu
         Task task = tasks.get(position);
         holder.activity.setText(task.getActivity());
         holder.type.setText("Type: " + task.getType());
-        Picasso.get().load(task.getPictureResource()).placeholder(R.drawable.ic_menu_camera).into(holder.taskImage);
+        Picasso.get().load(task.getPictureResource()).resize(200, 95).centerCrop().placeholder(R.drawable.ic_menu_camera).into(holder.taskImage);
         System.out.println(task.getPictureResource());
         int completion = task.getCompletion();
         if (completion == 1){

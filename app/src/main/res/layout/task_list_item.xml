@@ -4,7 +4,8 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="8sp">
+    android:paddingHorizontal="8sp"
+    android:paddingTop="6sp">
 
     <!-- Added a cardview for the quotes -->
     <com.google.android.material.card.MaterialCardView
@@ -20,8 +21,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:paddingHorizontal="8sp"
-            android:paddingBottom="5sp">
+            android:paddingHorizontal="7sp"
+            android:paddingBottom="4sp">
 
             <TextView
                 android:id="@+id/activity"
