@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:columnCount="2"
     android:useDefaultMargins="true"
     tools:context=".Fragments.CreateUpdateFragment">
+
+    <ImageView
+        android:id="@+id/taskImageSelect"
+        android:layout_columnSpan="2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/ic_menu_camera" />
 
     <!-- Added textboxes to input quote info-->
     <TextView
@@ -48,3 +59,4 @@
         android:text="Submit" />
 
 </GridLayout>
+</ScrollView>
