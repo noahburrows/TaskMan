@@ -10,7 +10,7 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/taskbox"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="wrap_content"
         app:cardUseCompatPadding="true"
         app:strokeColor="@color/grey"
         app:strokeWidth="3dp"
@@ -36,6 +36,13 @@
                 android:layout_height="wrap_content"
                 android:text="Type"
                 android:textStyle="italic"/>
+
+            <ImageView
+                android:id="@+id/taskImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_menu_camera" />
 
         </LinearLayout>
 

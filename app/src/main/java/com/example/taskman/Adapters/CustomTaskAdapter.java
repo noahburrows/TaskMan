@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,6 +20,7 @@ import com.example.taskman.Fragments.CreateUpdateFragment;
 import com.example.taskman.R;
 import com.example.taskman.pojo.Task;
 import com.google.android.material.card.MaterialCardView;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -45,8 +47,10 @@ public class CustomTaskAdapter extends RecyclerView.Adapter<CustomTaskAdapter.Cu
         Task task = tasks.get(position);
         holder.activity.setText(task.getActivity());
         holder.type.setText("Type: " + task.getType());
+        Picasso.get().load(task.getPictureResource()).placeholder(R.drawable.ic_menu_camera).into(holder.taskImage);
+        System.out.println(task.getPictureResource());
         int completion = task.getCompletion();
-        if (completion == 0){
+        if (completion == 1){
             holder.taskbox.setStrokeColor(ContextCompat.getColor(this.context, R.color.black));
         }
 
@@ -76,12 +80,14 @@ public class CustomTaskAdapter extends RecyclerView.Adapter<CustomTaskAdapter.Cu
         protected TextView activity;
         protected TextView type;
         protected MaterialCardView taskbox;
+        protected ImageView taskImage;
 
         public CustomViewHolder(@NonNull View itemView) {
             super(itemView);
             this.activity = itemView.findViewById(R.id.activity);
             this.type = itemView.findViewById(R.id.type);
             this.taskbox = itemView.findViewById(R.id.taskbox);
+            this.taskImage = itemView.findViewById(R.id.taskImage);
             itemView.setOnLongClickListener(this);
         }
 
