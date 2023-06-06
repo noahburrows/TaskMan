@@ -77,6 +77,19 @@
         android:text="Set Reminder"
         android:enabled="false"/>
 
+    <TextView
+        android:id="@+id/completionLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:labelFor="@id/completionBox"
+        android:text="@string/completion_label" />
+
+    <Spinner
+        android:id="@+id/completionBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
     <Button
         android:id="@+id/submitButton"
         android:layout_width="match_parent"

@@ -17,10 +17,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.taskman.Database.TaskDatabase;
@@ -83,6 +85,12 @@ public class CreateUpdateFragment extends Fragment {
         Button dueDateButton = view.findViewById(R.id.dueDateButton);
         Button reminderButton = view.findViewById(R.id.reminderButton);
 
+        Spinner completionSpinner = view.findViewById(R.id.completionBox);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(),
+                R.array.completion_statuses, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        completionSpinner.setAdapter(adapter);
+
         selectImage = view.findViewById(R.id.taskImageSelect);
 
         selectImage.setOnClickListener(new View.OnClickListener() {
@@ -107,6 +115,7 @@ public class CreateUpdateFragment extends Fragment {
                         dueDate.setText(task.getDueDate()+"/"+(task.getDueMonth()+1)+"/"+task.getDueYear());
                         reminderButton.setEnabled(true);
                     }
+                    completionSpinner.setSelection(task.getCompletion());
                 }
             }
             else{
@@ -114,6 +123,7 @@ public class CreateUpdateFragment extends Fragment {
                 task.setDueDate(-1);
                 task.setDueMonth(-1);
                 task.setDueYear(-1);
+                task.setCompletion(0);
                 submit.setText("Create Task");
             }
 
@@ -181,6 +191,7 @@ public class CreateUpdateFragment extends Fragment {
                     }
                     task.setActivity(taskTitle.getText().toString());
                     task.setType(taskType.getText().toString());
+                    task.setCompletion(completionSpinner.getSelectedItemPosition());
 
                     //TODO dismiss keyboard
                     if(view.requestFocus()){
