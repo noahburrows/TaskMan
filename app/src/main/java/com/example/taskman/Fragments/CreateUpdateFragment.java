@@ -169,7 +169,8 @@ public class CreateUpdateFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
 
-                    if(taskTitle.getText().toString()=="" || taskType.getText().toString()=="") {
+                    if(taskTitle.getText().toString()=="" || taskType.getText().toString()==""
+                    ||taskTitle.getText().toString().isEmpty() || taskType.getText().toString().isEmpty()) {
                         new AlertDialog.Builder(getContext())
                                 .setTitle("Error")
                                 .setMessage("Please give your task a name and a type.")

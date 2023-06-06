@@ -95,7 +95,7 @@ public class CustomTaskAdapter extends RecyclerView.Adapter<CustomTaskAdapter.Cu
         public boolean onLongClick(View v) {
             new AlertDialog.Builder(context)
                     .setTitle("Delete")
-                    .setMessage("Are you sure you want to delete this task?")
+                    .setMessage("Are you sure you want to delete this task ("+ tasks.get(getLayoutPosition()).getActivity() +")?")
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         @Override
