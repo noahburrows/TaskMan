@@ -11,17 +11,29 @@
     <TextView
         android:id="@+id/randomTaskName"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="36sp"
+        android:layout_height="75sp"
+        android:textSize="32sp"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMinTextSize="20sp"
+        android:autoSizeMaxTextSize="48sp"
+        android:autoSizeStepGranularity="2sp"
         android:textAlignment="center"
         android:layout_columnSpan="2"
         android:text="@string/task_label" />
+
+    <ImageView
+        android:id="@+id/taskImageRandom"
+        android:layout_columnSpan="2"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/ic_menu_camera" />
 
     <TextView
         android:id="@+id/randomTaskType"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="28sp"
+        android:textSize="26sp"
         android:textAlignment="center"
         android:layout_columnSpan="2"
         android:text="@string/type_label" />
@@ -63,5 +75,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_columnSpan="2"
+        android:layout_gravity="bottom"
         android:text="@string/refresh_label" />
     </GridLayout>

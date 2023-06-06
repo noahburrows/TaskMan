@@ -26,10 +26,10 @@ public class Task implements Parcelable {
         this.completion = 0;
 
         switch (type.toLowerCase()){
-            case "educational":
+            case "education":
                 this.pictureResource = "https://images.unsplash.com/photo-1532012197267-da84d127e765";
                 break;
-            case "recreation":
+            case "recreational":
                 this.pictureResource = "https://images.unsplash.com/photo-1605050825077-289f85b6cf43";
                 break;
             case "social":
@@ -133,9 +133,9 @@ public class Task implements Parcelable {
     public String getPictureResource() {
         if (this.useDefaultPic==1){
             switch (this.type.toLowerCase()) {
-                case "educational":
+                case "education":
                     return "https://images.unsplash.com/photo-1532012197267-da84d127e765";
-                case "recreation":
+                case "recreational":
                     return "https://images.unsplash.com/photo-1605050825077-289f85b6cf43";
                 case "social":
                     return "https://images.unsplash.com/photo-1543269865-cbf427effbad";

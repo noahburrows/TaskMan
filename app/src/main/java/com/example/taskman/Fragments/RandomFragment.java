@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -19,6 +20,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.taskman.Adapters.TaskRequestQueue;
 import com.example.taskman.R;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -81,6 +83,8 @@ public class RandomFragment extends Fragment {
         TextView taskPrice = view.findViewById(R.id.randomTaskPrice);
         TextView taskDifficulty = view.findViewById(R.id.randomTaskDifficulty);
 
+        ImageView taskImage = view.findViewById(R.id.taskImageRandom);
+
         Button refresh = view.findViewById(R.id.refreshButton);
 
         String url = "https://www.boredapi.com/api/activity/";
@@ -99,6 +103,39 @@ public class RandomFragment extends Fragment {
                         taskPrice.setText(Math.round(mainObject.getDouble("price") * 100)/10.0 + "/10");
                     }
                     taskDifficulty.setText(Math.round(mainObject.getDouble("accessibility")*100)/10.0 + "/10");
+
+                    String pictureResource;
+                    switch (mainObject.getString("type")){
+                        case "education":
+                            pictureResource = "https://images.unsplash.com/photo-1532012197267-da84d127e765";
+                            break;
+                        case "recreational":
+                            pictureResource = "https://images.unsplash.com/photo-1605050825077-289f85b6cf43";
+                            break;
+                        case "social":
+                            pictureResource = "https://images.unsplash.com/photo-1543269865-cbf427effbad";
+                            break;
+                        case "diy":
+                            pictureResource = "https://images.unsplash.com/photo-1595814433015-e6f5ce69614e";
+                            break;
+                        case "charity":
+                            pictureResource = "https://images.unsplash.com/photo-1532629345422-7515f3d16bb6";
+                            break;
+                        case "cooking":
+                            pictureResource = "https://images.unsplash.com/photo-1506368249639-73a05d6f6488";
+                            break;
+                        case "relaxation":
+                            pictureResource = "https://images.unsplash.com/photo-1520809227329-2f94844a9635";
+                            break;
+                        case "music":
+                            pictureResource = "https://images.unsplash.com/photo-1510915361894-db8b60106cb1";
+                            break;
+                        case "busywork":
+                        default:
+                            pictureResource = "https://images.unsplash.com/photo-1512758017271-d7b84c2113f1";
+                    }
+                    Picasso.get().load(pictureResource).resize(250, 120).centerCrop().placeholder(R.drawable.ic_menu_camera).into(taskImage);
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
