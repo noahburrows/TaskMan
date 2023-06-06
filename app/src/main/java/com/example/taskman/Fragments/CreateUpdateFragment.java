@@ -1,7 +1,9 @@
 package com.example.taskman.Fragments;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -9,6 +11,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import android.provider.CalendarContract;
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -140,11 +143,41 @@ public class CreateUpdateFragment extends Fragment {
                 }
             });
 
+            reminderButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Calendar beginTime = Calendar.getInstance();
+                    beginTime.set(task.getDueYear(), task.getDueMonth(), task.getDueDate(), 7, 30);
+
+                    //Calendar endTime = Calendar.getInstance();
+                    //endTime.set(2012, 0, 19, 8, 30);
+
+                    Intent intent = new Intent(Intent.ACTION_INSERT)
+                            .setData(CalendarContract.Events.CONTENT_URI)
+                            .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME,
+                                    beginTime.getTimeInMillis())
+                            .putExtra(CalendarContract.EXTRA_EVENT_END_TIME,
+                                    beginTime.getTimeInMillis())
+                            .putExtra(CalendarContract.Events.ALL_DAY, true)
+                            .putExtra(CalendarContract.Events.TITLE, task.getActivity());
+
+                    startActivity(intent);
+                }
+            });
 
             submit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
+                    if(taskTitle.getText().toString()=="" || taskType.getText().toString()=="") {
+                        new AlertDialog.Builder(getContext())
+                                .setTitle("Error")
+                                .setMessage("Please give your task a name and a type.")
+                                .setIcon(android.R.drawable.ic_dialog_alert)
+                                .setPositiveButton("OK", null)
+                                .show();
+                        return;
+                    }
                     task.setActivity(taskTitle.getText().toString());
                     task.setType(taskType.getText().toString());
 
