@@ -57,4 +57,11 @@
         android:textSize="24sp"
         android:layout_gravity="center_horizontal"
         android:text="?" />
+
+    <Button
+        android:id="@+id/refreshButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_columnSpan="2"
+        android:text="@string/refresh_label" />
     </GridLayout>

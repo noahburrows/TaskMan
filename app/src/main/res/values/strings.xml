@@ -20,6 +20,7 @@
 
     <string name="price_label">Price:</string>
     <string name="difficulty_label">Difficulty:</string>
+    <string name="refresh_label">Refresh</string>
 
     <string-array name="completion_statuses">
         <item>To-do</item>

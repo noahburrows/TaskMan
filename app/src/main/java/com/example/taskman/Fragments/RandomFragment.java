@@ -1,13 +1,16 @@
 package com.example.taskman.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -78,6 +81,8 @@ public class RandomFragment extends Fragment {
         TextView taskPrice = view.findViewById(R.id.randomTaskPrice);
         TextView taskDifficulty = view.findViewById(R.id.randomTaskDifficulty);
 
+        Button refresh = view.findViewById(R.id.refreshButton);
+
         String url = "https://www.boredapi.com/api/activity/";
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET,
                 url, null, new Response.Listener<JSONObject>() {
@@ -91,9 +96,9 @@ public class RandomFragment extends Fragment {
                     if(mainObject.getDouble("price")==0){
                         taskPrice.setText("Free!");
                     } else {
-                        taskPrice.setText((int) (mainObject.getDouble("price") * 10) + "/10");
+                        taskPrice.setText(Math.round(mainObject.getDouble("price") * 100)/10.0 + "/10");
                     }
-                    taskDifficulty.setText((int)(mainObject.getDouble("accessibility")*10)+"/10");
+                    taskDifficulty.setText(Math.round(mainObject.getDouble("accessibility")*100)/10.0 + "/10");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -105,6 +110,13 @@ public class RandomFragment extends Fragment {
             }
         });
         TaskRequestQueue.getInstance(getContext()).getRequestQueue().add(request);
+
+        refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TaskRequestQueue.getInstance(getContext()).getRequestQueue().add(request);
+            }
+        });
 
         return view;
     }
