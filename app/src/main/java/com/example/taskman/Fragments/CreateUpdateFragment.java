@@ -132,6 +132,7 @@ public class CreateUpdateFragment extends Fragment {
                                     task.setDueDate(dayOfMonth);
                                     task.setDueMonth(monthOfYear);
                                     task.setDueYear(year);
+                                    reminderButton.setEnabled(true);
                                 }
                             },
                             year, month, day);
