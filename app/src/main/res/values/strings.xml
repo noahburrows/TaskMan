@@ -14,4 +14,5 @@
 
     <string name="task_label">Task Name</string>
     <string name="type_label">Type</string>
+    <string name="date_label">Due Date</string>
 </resources>

@@ -5,7 +5,7 @@
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:columnCount="2"
     android:useDefaultMargins="true"
     tools:context=".Fragments.CreateUpdateFragment">
@@ -14,7 +14,7 @@
         android:id="@+id/taskImageSelect"
         android:layout_columnSpan="2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:adjustViewBounds="true"
         android:src="@drawable/ic_menu_camera" />
 
@@ -50,6 +50,32 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp" />
+
+    <TextView
+        android:id="@+id/dueDateLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:labelFor="@id/dueDate"
+        android:text="@string/date_label" />
+
+    <TextView
+        android:id="@+id/dueDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill_horizontal"
+        android:text="None" />
+
+    <Button
+        android:id="@+id/dueDateButton"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill_horizontal"
+        android:text="Set Due Date" />
+
+    <Button
+        android:id="@+id/reminderButton"
+        android:layout_height="wrap_content"
+        android:text="Set Reminder"
+        android:enabled="false"/>
 
     <Button
         android:id="@+id/submitButton"

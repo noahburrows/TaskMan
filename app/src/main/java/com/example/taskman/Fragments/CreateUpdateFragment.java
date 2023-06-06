@@ -1,21 +1,30 @@
 package com.example.taskman.Fragments;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.taskman.Database.TaskDatabase;
 import com.example.taskman.R;
 import com.example.taskman.pojo.Task;
+
+import java.util.Calendar;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,7 +40,9 @@ public class CreateUpdateFragment extends Fragment {
      */
     public static final int UPDATE = 1;
     public static final int CREATE = 2;
+    public static final int PIC_CODE = 1235;
     Task task;
+    ImageView selectImage;
 
     /*
         labels used for the bundle name/value pairs
@@ -65,6 +76,19 @@ public class CreateUpdateFragment extends Fragment {
         EditText taskTitle = view.findViewById(R.id.taskTitle);
         EditText taskType = view.findViewById(R.id.taskType);
         Button submit = view.findViewById(R.id.submitButton);
+        TextView dueDate = view.findViewById(R.id.dueDate);
+        Button dueDateButton = view.findViewById(R.id.dueDateButton);
+        Button reminderButton = view.findViewById(R.id.reminderButton);
+
+        selectImage = view.findViewById(R.id.taskImageSelect);
+
+        selectImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent camera_intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(camera_intent, PIC_CODE);
+            }
+        });
 
         //if we have a bundle
         if(getArguments() != null){
@@ -76,21 +100,53 @@ public class CreateUpdateFragment extends Fragment {
                     //Populate the edit text fields on the screen with the task's values
                     taskTitle.setText(task.getActivity());
                     taskType.setText(task.getType());
+                    if(task.getDueDate()!=-1){
+                        dueDate.setText(task.getDueDate()+"/"+(task.getDueMonth()+1)+"/"+task.getDueYear());
+                        reminderButton.setEnabled(true);
+                    }
                 }
             }
             else{
                 task = new Task();
+                task.setDueDate(-1);
+                task.setDueMonth(-1);
+                task.setDueYear(-1);
                 submit.setText("Create Task");
             }
+
+            dueDateButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final Calendar c = Calendar.getInstance();
+
+                    int year = c.get(Calendar.YEAR);
+                    int month = c.get(Calendar.MONTH);
+                    int day = c.get(Calendar.DAY_OF_MONTH);
+
+                    DatePickerDialog datePickerDialog = new DatePickerDialog(
+                            getContext(),
+                            new DatePickerDialog.OnDateSetListener() {
+                                @Override
+                                public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                                    dueDate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+                                    task.setDueDate(dayOfMonth);
+                                    task.setDueMonth(monthOfYear);
+                                    task.setDueYear(year);
+                                }
+                            },
+                            year, month, day);
+                    datePickerDialog.show();
+                }
+            });
+
+
             submit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
                     task.setActivity(taskTitle.getText().toString());
                     task.setType(taskType.getText().toString());
-                    task.setDueDate(2);
-                    task.setDueMonth(3);
-                    task.setDueYear(4);
+
                     //TODO dismiss keyboard
                     if(view.requestFocus()){
                         InputMethodManager inputMethodManager = (InputMethodManager)
@@ -113,5 +169,20 @@ public class CreateUpdateFragment extends Fragment {
         }
 
 
-        return view;    }
+        return view;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        // Match the request 'pic id with requestCode
+        if (requestCode == PIC_CODE) {
+            // BitMap is data structure of image file which store the image in memory
+            Bitmap photo = (Bitmap) data.getExtras().get("data");
+            // Set the image in imageview for display
+            selectImage.setImageBitmap(photo);
+            task.setPictureResource(photo.toString());
+            task.setUseDefaultPic(0);
+        }
+    }
 }
