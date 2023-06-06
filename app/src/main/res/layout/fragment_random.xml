@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:columnCount="2"
+    android:useDefaultMargins="true"
+    android:padding="5sp"
+    tools:context=".Fragments.RandomFragment">
+
+    <TextView
+        android:id="@+id/randomTaskName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="36sp"
+        android:textAlignment="center"
+        android:layout_columnSpan="2"
+        android:text="@string/task_label" />
+
+    <TextView
+        android:id="@+id/randomTaskType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="28sp"
+        android:textAlignment="center"
+        android:layout_columnSpan="2"
+        android:text="@string/type_label" />
+
+    <TextView
+        android:id="@+id/randomTaskPriceLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:labelFor="@id/randomTaskPrice"
+        android:textSize="24sp"
+        android:text="@string/price_label" />
+
+    <TextView
+        android:id="@+id/randomTaskPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:layout_gravity="center_horizontal"
+        android:text="$" />
+
+    <TextView
+        android:id="@+id/randomTaskDifficultyLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:labelFor="@id/randomTaskDifficulty"
+        android:textSize="24sp"
+        android:text="@string/difficulty_label" />
+
+    <TextView
+        android:id="@+id/randomTaskDifficulty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:layout_gravity="center_horizontal"
+        android:text="?" />
+    </GridLayout>
