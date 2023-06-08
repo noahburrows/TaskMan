@@ -1,9 +1,11 @@
 package com.example.taskman.Fragments;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.preference.PreferenceManager;
 
 import android.provider.MediaStore;
 import android.util.Log;
@@ -24,6 +26,8 @@ import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.Locale;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -87,7 +91,15 @@ public class RandomFragment extends Fragment {
 
         Button refresh = view.findViewById(R.id.refreshButton);
 
-        String url = "https://www.boredapi.com/api/activity/";
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences( this.getContext());
+
+        String url = "https://www.boredapi.com/api/activity?maxprice="+(sharedPref.getInt("Budget",5)/10.0)+"&maxaccessibility="+(sharedPref.getInt("Difficulty",5)/10.0);
+
+        String typePref = sharedPref.getString("Type", "All");
+        if(typePref!="All"){
+            url = url+"&type="+typePref;
+        }
+
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET,
                 url, null, new Response.Listener<JSONObject>() {
             @Override

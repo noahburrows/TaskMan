@@ -3,6 +3,14 @@
 
     <PreferenceCategory app:title="@string/settings_header">
 
+        <ListPreference
+            app:key="Type"
+            app:defaultValue="all"
+            app:title="@string/setting1"
+            app:entries="@array/types"
+            app:entryValues="@array/type_values"
+            />
+
         <SeekBarPreference
             app:key="Budget"
             app:defaultValue="5"
