@@ -51,7 +51,9 @@ public class CustomTaskAdapter extends RecyclerView.Adapter<CustomTaskAdapter.Cu
         System.out.println(task.getPictureResource());
         int completion = task.getCompletion();
         if (completion == 1){
-            holder.taskbox.setStrokeColor(ContextCompat.getColor(this.context, R.color.black));
+            holder.taskbox.setStrokeColor(ContextCompat.getColor(this.context, R.color.yellow));
+        } else if (completion == 2){
+            holder.taskbox.setStrokeColor(ContextCompat.getColor(this.context, R.color.green));
         }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
