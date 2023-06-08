@@ -18,6 +18,8 @@
     <string name="date_label">Due Date</string>
     <string name="completion_label">Completion</string>
 
+    <string name="random_task_label">We couldn\'t find a task that met your criteria.</string>
+    <string name="random_type_label">Try changing your settings</string>
     <string name="price_label">Price:</string>
     <string name="difficulty_label">Difficulty:</string>
     <string name="refresh_label">Refresh</string>
@@ -51,7 +53,7 @@
         <item>busywork</item>
         <item>charity</item>
         <item>cooking</item>
-        <item>dIY</item>
+        <item>diy</item>
         <item>education</item>
         <item>music</item>
         <item>recreational</item>

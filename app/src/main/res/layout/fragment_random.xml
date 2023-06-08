@@ -19,7 +19,7 @@
         android:autoSizeStepGranularity="2sp"
         android:textAlignment="center"
         android:layout_columnSpan="2"
-        android:text="@string/task_label" />
+        android:text="@string/random_task_label" />
 
     <ImageView
         android:id="@+id/taskImageRandom"
@@ -36,7 +36,7 @@
         android:textSize="26sp"
         android:textAlignment="center"
         android:layout_columnSpan="2"
-        android:text="@string/type_label" />
+        android:text="@string/random_type_label" />
 
     <TextView
         android:id="@+id/randomTaskPriceLabel"
@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:textSize="24sp"
         android:layout_gravity="center_horizontal"
-        android:text="$" />
+        android:text="?" />
 
     <TextView
         android:id="@+id/randomTaskDifficultyLabel"
