@@ -45,6 +45,7 @@ public class CreateUpdateFragment extends Fragment {
      */
     public static final int UPDATE = 1;
     public static final int CREATE = 2;
+    public static final int CREATE_FROM = 3;
     public static final int PIC_CODE = 1235;
     Task task;
     ImageView selectImage;
@@ -116,6 +117,14 @@ public class CreateUpdateFragment extends Fragment {
                         reminderButton.setEnabled(true);
                     }
                     completionSpinner.setSelection(task.getCompletion());
+                }
+            } else if(getArguments().getInt(ACTION_TYPE) == CREATE_FROM){
+                task = getArguments().getParcelable(TASK);
+                submit.setText("Create Task");
+                if(task != null){
+                    //Populate the edit text fields on the screen with the task's values
+                    taskTitle.setText(task.getActivity());
+                    taskType.setText(task.getType());
                 }
             }
             else{
@@ -204,7 +213,7 @@ public class CreateUpdateFragment extends Fragment {
                     if(getArguments().getInt(ACTION_TYPE) == UPDATE){
                         db.updateTask(task);
                     }
-                    else if(getArguments().getInt(ACTION_TYPE) == CREATE){
+                    else if(getArguments().getInt(ACTION_TYPE) == CREATE || getArguments().getInt(ACTION_TYPE) == CREATE_FROM){
                         db.addTask(task);
                     }
                     db.close();

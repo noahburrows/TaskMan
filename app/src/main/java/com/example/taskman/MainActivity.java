@@ -3,8 +3,10 @@ package com.example.taskman;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
 
 import com.example.taskman.Fragments.CreateUpdateFragment;
+import com.example.taskman.pojo.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -44,6 +46,15 @@ public class MainActivity extends AppCompatActivity {
                     extra.putInt(CreateUpdateFragment.ACTION_TYPE,
                             CreateUpdateFragment.CREATE);
                     navController.navigate(R.id.nav_create_update, extra);
+                } else if(currentFragment.getId() == R.id.nav_random){
+                    Bundle extra = new Bundle();
+                    extra.putInt(CreateUpdateFragment.ACTION_TYPE,
+                            CreateUpdateFragment.CREATE_FROM);
+                    Task randomTask = new Task( ((TextView) findViewById(R.id.randomTaskName)).getText().toString(),
+                            ((TextView) findViewById(R.id.randomTaskType)).getText().toString(),-1,-1,-1);
+                    extra.putParcelable(CreateUpdateFragment.TASK,
+                            randomTask);
+                    navController.navigate(R.id.nav_create_update, extra);
                 }
             }
         });
@@ -61,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
             @Override
             public void onDestinationChanged(@NonNull NavController navController, @NonNull NavDestination navDestination, @Nullable Bundle bundle) {
-                if(navDestination.getId() == R.id.nav_tasks){
+                if(navDestination.getId() == R.id.nav_tasks ||navDestination.getId() == R.id.nav_random){
                     binding.appBarMain.addfab.show();
                 }
                 else{
