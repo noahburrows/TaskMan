@@ -95,8 +95,8 @@ public class RandomFragment extends Fragment {
 
         String url = "https://www.boredapi.com/api/activity?maxprice="+(sharedPref.getInt("Budget",5)/10.0)+"&maxaccessibility="+(sharedPref.getInt("Difficulty",5)/10.0);
 
-        String typePref = sharedPref.getString("Type", "All");
-        if(typePref!="All"){
+        String typePref = sharedPref.getString("Type", "all");
+        if(!typePref.equals("all")){
             url = url+"&type="+typePref;
         }
 
