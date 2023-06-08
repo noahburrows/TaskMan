@@ -27,4 +27,11 @@
         <item>In Progress</item>
         <item>Complete!</item>
     </string-array>
+
+    <!-- Preference Titles -->
+    <string name="settings_header">Random Task Settings</string>
+    <string name="setting1">Preferred Type</string>
+    <string name="setting2">Budget</string>
+    <string name="setting3">Difficulty</string>
+
 </resources>

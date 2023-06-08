@@ -1,0 +1,27 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory app:title="@string/settings_header">
+
+        <SeekBarPreference
+            app:key="Budget"
+            app:defaultValue="5"
+            app:min="0"
+            android:max="10"
+            app:seekBarIncrement="1"
+            app:showSeekBarValue="true"
+            app:title="@string/setting2"
+            />
+        <SeekBarPreference
+            app:key="Difficulty"
+            app:defaultValue="5"
+            app:min="0"
+            android:max="10"
+            app:seekBarIncrement="1"
+            app:showSeekBarValue="true"
+            app:title="@string/setting3"
+            />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
