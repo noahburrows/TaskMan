@@ -6,10 +6,12 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <string name="action_credits">Credits</string>
 
     <string name="menu_tasks">Tasks</string>
     <string name="menu_about">About</string>
     <string name="menu_random">New Ideas</string>
+    <string name="menu_credits">Credits</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
@@ -61,4 +63,15 @@
         <item>social</item>
     </string-array>
 
+
+    <!-- Credits strings -->
+    <string name="programmer_label">Programmed By:</string>
+    <string name="programmer">Noah Burrows</string>
+    <string name="provider_label">Images Provided By:</string>
+    <string name="provider">Unsplash.com</string>
+    <string name="api_label">Random Tasks Provided By:</string>
+    <string name="api">Bored API</string>
+
+    <string name="support_label">For support with this app, email Noah at:</string>
+    <string name="support">w0772238@myscc.ca</string>
 </resources>

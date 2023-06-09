@@ -106,6 +106,10 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("OPTIONSMENU", "Settings Clicked");
                 navController.navigate(R.id.nav_settings);
                 break;
+            case R.id.action_credits:
+                Log.d("CREDITSMENU", "Credits Clicked");
+                navController.navigate(R.id.nav_credits);
+                break;
         }
 
 
