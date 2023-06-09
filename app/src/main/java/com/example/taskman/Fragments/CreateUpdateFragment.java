@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -28,6 +29,7 @@ import android.widget.TextView;
 import com.example.taskman.Database.TaskDatabase;
 import com.example.taskman.R;
 import com.example.taskman.pojo.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Calendar;
 
@@ -221,6 +223,9 @@ public class CreateUpdateFragment extends Fragment {
                     Navigation.findNavController(view).popBackStack();
                 }
             });
+
+
+
         }
 
 

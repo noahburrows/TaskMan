@@ -1,5 +1,7 @@
 package com.example.taskman;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -61,6 +63,16 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        binding.appBarMain.socialfab.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Uri webpage = Uri.parse("https://www.reddit.com/");
+                Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
+                    startActivity(intent);
+            }
+        });
+
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each
@@ -77,9 +89,14 @@ public class MainActivity extends AppCompatActivity {
             public void onDestinationChanged(@NonNull NavController navController, @NonNull NavDestination navDestination, @Nullable Bundle bundle) {
                 if(navDestination.getId() == R.id.nav_tasks ||navDestination.getId() == R.id.nav_random){
                     binding.appBarMain.addfab.show();
+                    binding.appBarMain.socialfab.hide();
+                } else if(navDestination.getId() == R.id.nav_create_update){
+                    binding.appBarMain.addfab.hide();
+                    binding.appBarMain.socialfab.show();
                 }
                 else{
                     binding.appBarMain.addfab.hide();
+                    binding.appBarMain.socialfab.hide();
                 }
             }
         });
