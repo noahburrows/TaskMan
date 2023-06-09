@@ -41,6 +41,28 @@ public class CreditsFragment extends Fragment {
         TextView supportLink = view.findViewById(R.id.support);
 
 
+        imageLink.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Uri webpage = Uri.parse("https://unsplash.com/");
+                Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
+                if (intent.resolveActivity(getContext().getPackageManager()) != null) {
+                    startActivity(intent);
+                }
+            }
+        });
+
+        apiLink.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Uri webpage = Uri.parse("https://www.boredapi.com/");
+                Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
+                if (intent.resolveActivity(getContext().getPackageManager()) != null) {
+                    startActivity(intent);
+                }
+            }
+        });
+
         supportLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
