@@ -25,7 +25,7 @@
         android:text="Unknown"
         android:fontFamily="@font/montserrat_regular"
         android:padding="8sp"
-        android:textSize="20sp" />
+        android:textSize="18sp" />
 
     <ImageView
         android:id="@+id/aboutImage"

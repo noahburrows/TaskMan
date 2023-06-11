@@ -102,14 +102,14 @@ public class AboutFragment extends Fragment {
                             "\nTasks that are complete become green, tasks that are still ongoing are yellow, and tasks that haven't been started yet " +
                             "are grey.", R.drawable.ic_baseline_edit_24);
                 case 4:
-                    return AboutPageFragment.newInstance("Using the Calendar", "When viewing a task, you can tap the calendar icon next to the " +
+                    return AboutPageFragment.newInstance("Using the Calendar", "When viewing a task, you can tap the \"set reminder\" button next to the " +
                             "due date to create a reminder in your phone's calendar.", R.drawable.ic_baseline_calendar_24);
                 case 5:
                     return AboutPageFragment.newInstance("Posting to Social Media", "After completing a task, a button will appear that allows you " +
                             "to post about that task to Reddit. Tap that button to open up your internet browser and create your post!", R.drawable.reddit_icon);
                 case 6:
                     return AboutPageFragment.newInstance("Task Randomizer", "Not sure what task you want to get started with today? Check out " +
-                            "the task randomizer! This page allows you to generate random ideas for things to do to stave off the boredom. " +
+                            "the \"New Ideas\" page! This page allows you to generate random ideas for things to do to stave off the boredom. " +
                             "You can refine the types of things it suggests by visiting the settings page.", R.drawable.ic_baseline_idea_24);
                 default:
                     return AboutPageFragment.newInstance("About", "Details", R.drawable.ic_baseline_add_24);
