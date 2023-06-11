@@ -14,7 +14,8 @@
         android:labelFor="@id/programmer"
         android:textSize="25sp"
         android:padding="5sp"
-        android:text="@string/programmer_label" />
+        android:text="@string/programmer_label"
+        android:fontFamily="@font/montserrat_bold"/>
 
     <TextView
         android:id="@+id/programmer"
@@ -23,16 +24,18 @@
         android:textSize="22sp"
         android:layout_gravity="center_horizontal"
         android:padding="7sp"
-        android:text="@string/programmer" />
+        android:text="@string/programmer"
+        android:fontFamily="@font/raleway_bold"/>
 
     <TextView
         android:id="@+id/providerLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:labelFor="@id/programmer"
+        android:labelFor="@id/provider"
         android:textSize="25sp"
         android:padding="5sp"
-        android:text="@string/provider_label" />
+        android:text="@string/provider_label"
+        android:fontFamily="@font/montserrat_bold"/>
 
     <TextView
         android:id="@+id/provider"
@@ -42,16 +45,18 @@
         android:layout_gravity="center_horizontal"
         android:padding="7sp"
         android:textColor="@color/link_blue"
-        android:text="@string/provider" />
+        android:text="@string/provider"
+        android:fontFamily="@font/montserrat_regular"/>
 
     <TextView
         android:id="@+id/apiLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:labelFor="@id/programmer"
+        android:labelFor="@id/api"
         android:textSize="25sp"
         android:padding="5sp"
-        android:text="@string/api_label" />
+        android:text="@string/api_label"
+        android:fontFamily="@font/montserrat_bold"/>
 
     <TextView
         android:id="@+id/api"
@@ -61,7 +66,29 @@
         android:layout_gravity="center_horizontal"
         android:padding="7sp"
         android:textColor="@color/link_blue"
-        android:text="@string/api" />
+        android:text="@string/api"
+        android:fontFamily="@font/montserrat_regular"/>
+
+    <TextView
+        android:id="@+id/fontsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:labelFor="@id/fonts"
+        android:textSize="25sp"
+        android:padding="5sp"
+        android:text="@string/fonts_label"
+        android:fontFamily="@font/montserrat_bold"/>
+
+    <TextView
+        android:id="@+id/fonts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:layout_gravity="center_horizontal"
+        android:padding="7sp"
+        android:textColor="@color/link_blue"
+        android:text="@string/fonts"
+        android:fontFamily="@font/montserrat_regular"/>
 
     <TextView
         android:id="@+id/supportLabel"
@@ -70,7 +97,8 @@
         android:labelFor="@id/support"
         android:textSize="20sp"
         android:padding="5sp"
-        android:text="@string/support_label" />
+        android:text="@string/support_label"
+        android:fontFamily="@font/montserrat_regular"/>
 
     <TextView
         android:id="@+id/support"

@@ -14,16 +14,18 @@
         android:layout_height="wrap_content"
         android:text="Unknown"
         android:textAlignment="center"
+        android:fontFamily="@font/montserrat_bold"
         android:padding="8sp"
-        android:textSize="32sp" />
+        android:textSize="34sp" />
 
     <TextView
         android:id="@+id/aboutDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Unknown"
+        android:fontFamily="@font/montserrat_regular"
         android:padding="8sp"
-        android:textSize="18sp" />
+        android:textSize="20sp" />
 
     <ImageView
         android:id="@+id/aboutImage"

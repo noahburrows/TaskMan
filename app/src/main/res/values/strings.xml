@@ -71,6 +71,8 @@
     <string name="provider"><u>Unsplash.com</u></string>
     <string name="api_label">Random Tasks Provided By:</string>
     <string name="api"><u>Bored API</u></string>
+    <string name="fonts_label">Fonts Provided By:</string>
+    <string name="fonts"><u>1001freefonts.com</u></string>
 
     <string name="support_label">For support with this app, email Noah at:</string>
     <string name="support"><u>w0772238@myscc.ca</u></string>

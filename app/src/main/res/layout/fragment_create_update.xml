@@ -26,7 +26,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:labelFor="@id/taskTitle"
-        android:text="@string/task_label" />
+        android:text="@string/task_label"
+        android:fontFamily="@font/montserrat_regular"/>
 
     <EditText
         android:id="@+id/taskTitle"
@@ -42,7 +43,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:labelFor="@id/taskType"
-        android:text="@string/type_label" />
+        android:text="@string/type_label"
+        android:fontFamily="@font/montserrat_regular"/>
 
     <EditText
         android:id="@+id/taskType"
@@ -58,25 +60,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:labelFor="@id/dueDate"
-        android:text="@string/date_label" />
+        android:text="@string/date_label"
+        android:fontFamily="@font/montserrat_regular"/>
 
     <TextView
         android:id="@+id/dueDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="fill_horizontal"
-        android:text="None" />
+        android:text="None"
+        android:fontFamily="@font/montserrat_regular"/>
 
     <Button
         android:id="@+id/dueDateButton"
         android:layout_height="wrap_content"
         android:layout_gravity="fill_horizontal"
-        android:text="Set Due Date" />
+        android:text="Set Due Date"
+        android:fontFamily="@font/montserrat_regular"/>
 
     <Button
         android:id="@+id/reminderButton"
         android:layout_height="wrap_content"
         android:text="Set Reminder"
+        android:fontFamily="@font/montserrat_regular"
         android:enabled="false"/>
 
     <TextView
@@ -84,7 +90,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:labelFor="@id/completionBox"
-        android:text="@string/completion_label" />
+        android:text="@string/completion_label"
+        android:fontFamily="@font/montserrat_regular"/>
 
     <Spinner
         android:id="@+id/completionBox"
@@ -97,7 +104,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_columnSpan="2"
-        android:text="Submit" />
+        android:text="Submit"
+        android:fontFamily="@font/montserrat_regular"/>
 
 
 

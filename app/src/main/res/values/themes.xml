@@ -14,10 +14,6 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.TaskMan.Submit">
-        <item name="colorAccent">@color/sky_blue</item>
-    </style>
-
     <style name="Theme.TaskMan.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

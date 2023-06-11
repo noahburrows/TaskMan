@@ -38,6 +38,7 @@ public class CreditsFragment extends Fragment {
 
         TextView imageLink = view.findViewById(R.id.provider);
         TextView apiLink = view.findViewById(R.id.api);
+        TextView fontsLink = view.findViewById(R.id.fonts);
         TextView supportLink = view.findViewById(R.id.support);
 
 
@@ -56,6 +57,17 @@ public class CreditsFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Uri webpage = Uri.parse("https://www.boredapi.com/");
+                Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
+                if (intent.resolveActivity(getContext().getPackageManager()) != null) {
+                    startActivity(intent);
+                }
+            }
+        });
+
+        fontsLink.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Uri webpage = Uri.parse("https://www.1001freefonts.com/");
                 Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
                 if (intent.resolveActivity(getContext().getPackageManager()) != null) {
                     startActivity(intent);
