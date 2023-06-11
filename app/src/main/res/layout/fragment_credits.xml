@@ -41,6 +41,7 @@
         android:textSize="22sp"
         android:layout_gravity="center_horizontal"
         android:padding="7sp"
+        android:textColor="@color/link_blue"
         android:text="@string/provider" />
 
     <TextView
@@ -59,6 +60,7 @@
         android:textSize="22sp"
         android:layout_gravity="center_horizontal"
         android:padding="7sp"
+        android:textColor="@color/link_blue"
         android:text="@string/api" />
 
     <TextView
@@ -77,6 +79,7 @@
         android:textSize="20sp"
         android:layout_gravity="center_horizontal"
         android:padding="5sp"
+        android:textColor="@color/link_blue"
         android:text="@string/support" />
 
 </LinearLayout>

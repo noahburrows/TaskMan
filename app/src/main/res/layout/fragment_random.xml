@@ -12,6 +12,7 @@
         android:id="@+id/randomTaskName"
         android:layout_width="match_parent"
         android:layout_height="75sp"
+        android:padding="2sp"
         android:textSize="32sp"
         android:autoSizeTextType="uniform"
         android:autoSizeMinTextSize="20sp"

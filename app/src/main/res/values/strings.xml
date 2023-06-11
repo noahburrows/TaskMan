@@ -68,10 +68,10 @@
     <string name="programmer_label">Programmed By:</string>
     <string name="programmer">Noah Burrows</string>
     <string name="provider_label">Images Provided By:</string>
-    <string name="provider">Unsplash.com</string>
+    <string name="provider"><u>Unsplash.com</u></string>
     <string name="api_label">Random Tasks Provided By:</string>
-    <string name="api">Bored API</string>
+    <string name="api"><u>Bored API</u></string>
 
     <string name="support_label">For support with this app, email Noah at:</string>
-    <string name="support">w0772238@myscc.ca</string>
+    <string name="support"><u>w0772238@myscc.ca</u></string>
 </resources>

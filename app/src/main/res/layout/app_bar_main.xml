@@ -38,6 +38,8 @@
         android:layout_gravity="top|end"
         android:layout_marginEnd="@dimen/fab_margin"
         android:layout_marginTop="80dp"
-        app:srcCompat="@drawable/reddit_icon" />
+        app:srcCompat="@drawable/reddit_icon"
+        app:fabCustomSize="48dp"
+        app:maxImageSize="50dp"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

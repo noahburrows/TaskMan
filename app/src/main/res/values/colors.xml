@@ -10,5 +10,13 @@
 
     <color name="yellow">#FFEEEE55</color>
     <color name="green">#FF00FF00</color>
-    <color name="grey">#FFDDDDDD</color>
+    <color name="grey">#FFB5B5B5</color>
+
+    <color name="dark_grey">#FF5C5A5B</color>
+    <color name="darker_grey">#FF3C3A3B</color>
+
+    <color name="sky_blue">#FFA29CF4</color>
+    <color name="link_blue">#FF525CFF</color>
+    <color name="beige">#FFA6A184</color>
+
 </resources>
