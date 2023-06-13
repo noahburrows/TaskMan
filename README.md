@@ -6,6 +6,11 @@
  ## Short Description
  Keep track of all your tasks, from the mundane to the fantastic!
  
+![Featured Image](https://github.com/noahburrows/TaskMan/blob/main/Screenshot_20230613_145415.png?raw=true)
+![Featured Image](https://github.com/noahburrows/TaskMan/blob/main/Screenshot_20230613_145507.png?raw=true)
+![Featured Image](https://github.com/noahburrows/TaskMan/blob/main/Screenshot_20230613_145720.png?raw=true)
+![Featured Image](https://github.com/noahburrows/TaskMan/blob/main/Screenshot_20230613_145745.png?raw=true)
+ 
  ### Full Description
  With TaskMan, you can take control of your goals and track your progress easily. With this app you can create tasks, update them, and complete them all with a couple clicks.
 * Create new tasks using the task form.
