@@ -1,4 +1,4 @@
-![Featured Image](https://github.com/noahburrows/TaskMan/blob/main/featuredimage.png)?raw=true)
+![Featured Image](https://github.com/noahburrows/TaskMan/blob/main/featuredimage.png?raw=true)
 
 # TaskMan
  Final Project for Android 3
